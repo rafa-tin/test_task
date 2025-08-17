@@ -1,4 +1,7 @@
-export default function RenderInfo({info, passedTests, profileData, avgScore}) {
+export default function RenderInfo({
+  info,
+  profileData,
+}) {
   function renderInfo() {
     if (info == "about") {
       return (
@@ -20,26 +23,8 @@ export default function RenderInfo({info, passedTests, profileData, avgScore}) {
           <h2>Password: {profileData.password}</h2>
         </div>
       );
-    } else if (info == "progress") {
-      return (
-        <div>
-          <h1>Nmber of completed tests: {passedTests.length}</h1>
-          <h1>Average Score: {avgScore}</h1>
-          <ul>
-            <h1>Your completed tests</h1>
-            {passedTests.map((item) => (
-              <li>
-                <h1>{item.testName}: </h1>
-                <p>
-                  {item.correctAnwers}/{item.questions}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
     } else {
-      return <div >Chose Option</div>;
+      return <div>Chose Option</div>;
     }
   }
 

@@ -5,7 +5,7 @@ export default function DashboardLayout() {
   return (
     <div className="flex flex-col min-h-screen">
       <AppHeader />   {/* всегда сверху */}
-      <main className="flex-grow p-4">
+      <main className="flex-grow flex p-4">
         <Outlet />    {/* сюда подставляется контент выбранной страницы */}
       </main>
     </div>
