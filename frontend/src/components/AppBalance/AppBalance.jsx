@@ -1,6 +1,6 @@
 import profileData from "../../data/person";
 import Subscribe from "../UI/Subscribe/Subscribe";
-import subscriptions from "../../data/Subscribes";
+import subscriptions from "../../data/subscribes";
 
 const formatBalance = (amount) => {
   return new Intl.NumberFormat("ru-RU").format(amount) + " UZS";
