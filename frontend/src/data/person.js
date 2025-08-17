@@ -10,6 +10,7 @@ const profileData = {
   avatar: "avatar.svg",
   password: "123password",
   tariff: "free",
+  balance: 10000,
   progress: [
     { id: 1, testName: "For Beginners", correctAnwers: 10, questions: 10 },
     {
@@ -31,6 +32,7 @@ const profileData = {
     { id: 8, testName: "Vocabulary 4", correctAnwers: 8, questions: 10 },
     { id: 9, testName: "Theory", correctAnwers: 3, questions: 10 },
     { id: 10, testName: "For Beginners", correctAnwers: 10, questions: 10 },
+    { id: 1, testName: "For Beginners", correctAnwers: 10, questions: 10 },
   ],
 };
 

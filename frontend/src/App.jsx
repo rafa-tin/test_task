@@ -1,27 +1,27 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ReactDashboardLayout from "./components/pages/ReactDashboardLayout/ReactDashboardLayout";
-import HomePage from "./components/pages/HomePage/HomePage";
 import AppQuestion from "./components/AppQuestion/AppQuestion";
 import AppProfile from "./components/AppProfile/AppProfile";
 import AppResult from "./components/AppResult/AppResult";
-// import ProfilePage from "./components/pages/ProfilePage/ProfilePage";
-// import BalancePage from "./components/pages/BalancePage/BalancePage";
-// import AchievementsPage from "./components/pages/AchievementsPage/AchievementsPage";
+import AppAchievements from "./components/AppAchievements/AppAchievments";
+import AppBalance from "./components/AppBalance/AppBalance";
+import AppLatestTests from "./components/AppLatestTests/AppLatestTests";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* общий layout со всеми вкладками */}
         <Route path="/" element={<ReactDashboardLayout />}>
+          {/* редирект с / на /latestTest */}
+          <Route index element={<Navigate to="latestTest" replace />} />
+
           <Route path="test" element={<AppQuestion />} />
           <Route path="results" element={<AppResult />} />
-          {/*
-          <Route path="balance" element={<BalancePage />} />
-          <Route path="achievements" element={<AchievementsPage />} /> */}
+          <Route path="achievements" element={<AppAchievements />} />
+          <Route path="balance" element={<AppBalance />} />
           <Route path="profile" element={<AppProfile />} />
+          <Route path="latestTest" element={<AppLatestTests />} />
         </Route>
       </Routes>
     </Router>

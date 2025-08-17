@@ -5,7 +5,7 @@ export default function RenderInfo({
   function renderInfo() {
     if (info == "about") {
       return (
-        <div>
+        <div className="flex flex-col gap-5 m-auto">
           <h1>
             Full Name: {profileData.name} {profileData.surname}
           </h1>
@@ -18,7 +18,7 @@ export default function RenderInfo({
       );
     } else if (info == "local") {
       return (
-        <div>
+        <div className="flex flex-col gap-5">
           <h2>Mail: {profileData.mail}</h2>
           <h2>Password: {profileData.password}</h2>
         </div>

@@ -46,7 +46,7 @@ export default function AppQuestion() {
       setCurrent((prev) => prev + 1);
       resetSelection();
     } else {
-      navigate("/");
+      navigate("/latestTest");
     }
   };
 
@@ -77,7 +77,7 @@ export default function AppQuestion() {
 
   return (
     <div className="flex flex-col items-center justify-center m-auto w-full">
-      <h1 className="text-2xl font-bold mb-2">{currentQuestion.question}</h1>
+      <h1 className=" font-bold mb-2 text-center text-[16px] sm:text-2xl w-3/4">{currentQuestion.question}</h1>
       <QuestionChooseText isMultiple={isMultiple} correctIds={correctIds} />
 
       <div className="flex flex-col gap-[10px] w-5/6 items-center">
