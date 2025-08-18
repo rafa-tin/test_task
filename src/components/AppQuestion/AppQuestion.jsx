@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import QuestionSingle from "../UI/SingleQuestion/SingleQuestion";
 import QuestionMultiple from "../UI/MultipleQuestion/MultipleQuestion";
 import QuestionChooseText from "../UI/QuestionChooseText/QuestionChooseText";
-import questions from "../../data/questions"
+import questions from "../../data/questions";
+import { getOptionBg } from "../utils/utils";   // ✅ импортируем
+import QuestionButton from "./QuestionButton/QuestionButton";
 
 export default function AppQuestion() {
   const [current, setCurrent] = useState(0);
@@ -50,22 +52,6 @@ export default function AppQuestion() {
     }
   };
 
-  const getOptionBg = (item) => {
-    if (checked) {
-      if (correctIds.includes(item.id)) return "bg-green-600 transition delay-150 duration-300 ease-in-out";
-      const isWrongSelected = isMultiple
-        ? selected.includes(item.id) && !correctIds.includes(item.id)
-        : singleSelected === item.id && !correctIds.includes(item.id);
-      if (isWrongSelected) return "bg-red-600 transition delay-150 duration-300 ease-in-out";
-    } else {
-      const isChosen = isMultiple
-        ? selected.includes(item.id)
-        : singleSelected === item.id;
-      if (isChosen) return "bg-gray-500";
-    }
-    return "bg-gray-600";
-  };
-
   const disableExtraChoice = (item) =>
     isMultiple &&
     !selected.includes(item.id) &&
@@ -77,7 +63,9 @@ export default function AppQuestion() {
 
   return (
     <div className="flex flex-col items-center justify-center m-auto w-full">
-      <h1 className=" font-bold mb-2 text-center text-[16px] sm:text-2xl w-3/4">{currentQuestion.question}</h1>
+      <h1 className=" font-bold mb-2 text-center text-[16px] sm:text-2xl w-3/4">
+        {currentQuestion.question}
+      </h1>
       <QuestionChooseText isMultiple={isMultiple} correctIds={correctIds} />
 
       <div className="flex flex-col gap-[10px] w-5/6 items-center">
@@ -86,7 +74,7 @@ export default function AppQuestion() {
             <QuestionMultiple
               key={item.id}
               item={item}
-              bg={getOptionBg(item)}
+              bg={getOptionBg({ item, checked, correctIds, isMultiple, selected, singleSelected })} 
               checked={checked}
               isSelect={selected.includes(item.id)}
               toggleSelect={toggleSelect}
@@ -96,7 +84,7 @@ export default function AppQuestion() {
             <QuestionSingle
               key={item.id}
               item={item}
-              bg={getOptionBg(item)}
+              bg={getOptionBg({ item, checked, correctIds, isMultiple, selected, singleSelected })}
               checked={checked}
               isSelect={singleSelected}
               setIsSelect={setSingleSelected}
@@ -104,21 +92,14 @@ export default function AppQuestion() {
           )
         )}
 
-        <button
-          onClick={nextMode ? goToNextQuestion : checkRightOption}
-          className={`w-[200px] h-[50px] rounded-xl cursor-pointer mt-4 ${
-            isSubmitDisabled
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700"
-          }`}
-          disabled={isSubmitDisabled}
-        >
-          {nextMode
-            ? current === questions.length - 1
-              ? "Finish"
-              : "Next"
-            : "Submit"}
-        </button>
+        <QuestionButton
+          nextMode={nextMode}
+          goToNextQuestion={goToNextQuestion}
+          checkRightOption={checkRightOption}
+          isSubmitDisabled={isSubmitDisabled}
+          current={current}
+          questions={questions.length - 1}
+        />
       </div>
     </div>
   );

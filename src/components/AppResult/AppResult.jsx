@@ -1,6 +1,7 @@
 import profileData from "../../data/person";
 import ListResults from "./ListResults/ListResults";
 import TopText from "./TopText/TopText";
+import setUnqColor from '../utils/utils'
 
 const passedTests = profileData.progress;
 const totalCorrect = passedTests.reduce(
@@ -15,20 +16,6 @@ const totalQuestions = passedTests.reduce(
 const solveScore = (correct, all) => Math.round((correct / all) * 100);
 
 export default function AppResult() {
-  function setUnqColor(correct, all, value) {
-    const avgValue = Math.round((correct / all) * 100);
-    switch (value) {
-      case "bgColor":
-        if (avgValue >= 80) return "bg-green-700";
-        else if (avgValue >= 40 && avgValue <= 80) return "bg-yellow-500";
-        else return "bg-red-500";
-        break;
-      case "textColor":
-        if (avgValue > 80) return "text-green-700";
-        else if (avgValue > 40 && avgValue < 80) return "text-yellow-500";
-        else return "text-red-500";
-    }
-  }
 
   return (
     <div className="w-full p-1 md:p-4">
