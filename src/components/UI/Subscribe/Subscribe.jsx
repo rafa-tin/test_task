@@ -2,6 +2,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Subscribe({ subscriptions, formatBalance }) {
   const navigate = useNavigate();
+  let key = 0;
+
+  function count () {
+    key+= 1
+    return key
+  }
 
   return (
     <div
@@ -11,7 +17,7 @@ export default function Subscribe({ subscriptions, formatBalance }) {
       <h1 className="text-3xl">{subscriptions.name}</h1>
       <div className="flex flex-col gap-4">
         {subscriptions.features.map((item) => (
-          <div>
+          <div key={count()}>
             <p className="flex">
               <img
                 className="size-[30px] mr-4"

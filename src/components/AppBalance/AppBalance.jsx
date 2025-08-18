@@ -21,7 +21,7 @@ export default function AppBalance() {
       </div>
       <div className="flex flex-col gap-5 md:flex-row md:m-auto">
         {subscriptions.map((item) => (
-          <Subscribe subscriptions={item} formatBalance={formatBalance} />
+          <Subscribe subscriptions={item} formatBalance={formatBalance} key={item.id}/>
         ))}
       </div>
     </div>

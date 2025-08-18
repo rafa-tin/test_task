@@ -10,7 +10,7 @@ export default function AppAchievements() {
         <h1 className="text-2xl mb-4">You got {achievedCount} achievements</h1>
       <div className="flex flex-col gap-5 w-full">
         {achievements.map((item) => (
-          <Achievment item={item}/>
+          <Achievment item={item} key={`avhieve/${item.id}`}/>
         ))}
       </div>
     </section>

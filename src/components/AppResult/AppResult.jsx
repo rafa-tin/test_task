@@ -21,7 +21,6 @@ export default function AppResult() {
   }
   function setColor(correct, all) {
     const scoreValue = solveScore(correct, all);
-    console.log(scoreValue);
     if (scoreValue >= 80) return "bg-green-700";
     else if (scoreValue >= 40 && scoreValue <= 80) return "bg-yellow-500";
     else return "bg-red-500";
@@ -32,7 +31,7 @@ export default function AppResult() {
   return (
     <div className="w-full p-1 md:p-4">
       <div className="flex justify-between text-xl gap-2">
-        <h1 className="pl-2">Nmber of completed tests: {passedTests.length}</h1>
+        <h1 className="pl-2">Number of completed tests: {passedTests.length}</h1>
         <div className="text-end items-end pr-1">
           <h1 className="flex justify-end flex-col ">Average Score:</h1>
           <p
@@ -46,7 +45,7 @@ export default function AppResult() {
       <ul className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
         {passedTests.map((item) => (
           <li
-            key={item.id}
+            key={`result/${item.id}`}
             className={`flex ${setColor(
               item.correctAnwers,
               item.questions

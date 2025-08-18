@@ -17,7 +17,7 @@ export default function AppHeader() {
         <BurgerMenu onClick={() => setIsOpen(!isOpen)} />
         <nav className="hidden md:flex flex-row gap-6 ml-auto mr-auto h-full">
           {navBar.map((item) => (
-            <li className="list-none flex items-end h-full">
+            <li className="list-none flex items-end h-full" key={item.id}>
               <Link
                 to={item.link}
                 onClick={() => setIdOpen(item.id)}
