@@ -2,33 +2,24 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import navBar from "../../data/navBar";
 import BurgerMenu from "../UI/BurgerMenu/BurgerMenu";
+import NavMenu from "./NavMenu/NavMenu";
+import PhoneNavMenu from "./PhoneNavMenu/PhoneNavMenu";
 
 export default function AppHeader() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [idOpen, setIdOpen] = useState(0);
-  function logFun (idOpen, item) {
-  return idOpen == item.id
-  }
 
   return (
     <header className="border-b border-gray-500">
       <div className="flex justify-between items-center w-11/12 m-auto h-[50px]">
         <BurgerMenu onClick={() => setIsOpen(!isOpen)} />
         <nav className="hidden md:flex flex-row gap-6 ml-auto mr-auto h-full">
-          {navBar.map((item) => (
-            <li className="list-none flex items-end h-full" key={item.id}>
-              <Link
-                to={item.link}
-                onClick={() => setIdOpen(item.id)}
-                className={`${
-                  idOpen == item.id ? "border-white" : ""
-                } pb-1 border-b-2 w-[120px] text-center border-stone-800 hover:text-xl hover:border-white transition ease-in-out duration-200`}
-              >
-                {item.value}
-              </Link>
-            </li>
-          ))}
+          <NavMenu
+            items={navBar}
+            onItemClick={(id) => setIdOpen(id)}
+            idOpen={idOpen}
+          />
         </nav>
 
         {window.location.pathname == "/balance" ? (
@@ -44,27 +35,12 @@ export default function AppHeader() {
 
       <nav
         className={`
-    md:hidden bg-gray-800 text-white
-    transition-all duration-300 ease-in-out
-    ${isOpen ? " opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
-  `}
+          md:hidden bg-gray-800 text-white
+          transition-all duration-300 ease-in-out
+          ${isOpen ? " opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+        `}
       >
-        <ul className="flex flex-col p-4">
-          {navBar.map((item) => (
-            <li key={item.id} className="list-none text-xl">
-              <Link
-                to={item.link}
-                
-                onClick={() => setIsOpen(false)}
-                className={`${
-                  item.link == window.location.pathname ? "bg-gray-700 rounded-md" : ""
-                } block w-full text-center hover:bg-gray-700 rounded-md p-2`}
-              >
-                {item.value}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <PhoneNavMenu navBar={navBar} setIsOpen={setIsOpen}/>
       </nav>
     </header>
   );

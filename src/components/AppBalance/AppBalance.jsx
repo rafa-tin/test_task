@@ -1,5 +1,5 @@
 import profileData from "../../data/person";
-import Subscribe from "../UI/Subscribe/Subscribe";
+import Subscribe from "./Subscribe/Subscribe";
 import subscriptions from "../../data/subscribes";
 
 const formatBalance = (amount) => {

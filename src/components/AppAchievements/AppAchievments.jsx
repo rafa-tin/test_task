@@ -1,5 +1,5 @@
 import achievements from "../../data/achievments";
-import Achievment from "../UI/Achievement/Achievement";
+import Achievment from "./Achievement/Achievement";
 
 const achievedCount = achievements.filter(a => a.unlocked).length
 
