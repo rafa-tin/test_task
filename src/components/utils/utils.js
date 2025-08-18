@@ -15,26 +15,16 @@ export default function setUnqColor(correct, all, value) {
 }
 
 //App Question
-export function getOptionBg({ item, checked, correctIds, isMultiple, selected, singleSelected }) {
+export const getOptionBg = ({ item, checked, correctIds, singleSelected }) => {
   if (checked) {
     if (correctIds.includes(item.id)) {
       return "bg-green-600 transition delay-150 duration-300 ease-in-out";
     }
-
-    const isWrongSelected = isMultiple
-      ? selected.includes(item.id) && !correctIds.includes(item.id)
-      : singleSelected === item.id && !correctIds.includes(item.id);
-
-    if (isWrongSelected) {
+    if (singleSelected === item.id && !correctIds.includes(item.id)) {
       return "bg-red-600 transition delay-150 duration-300 ease-in-out";
     }
   } else {
-    const isChosen = isMultiple
-      ? selected.includes(item.id)
-      : singleSelected === item.id;
-
-    if (isChosen) return "bg-gray-500";
+    if (singleSelected === item.id) return "bg-gray-500";
   }
-
   return "bg-gray-600";
-}
+};
