@@ -33,7 +33,7 @@ export default function AppResult() {
     <div className="w-full p-1 md:p-4">
       <div className="flex justify-between text-xl gap-2">
         <h1 className="pl-2">Nmber of completed tests: {passedTests.length}</h1>
-        <div className="text-end items-end">
+        <div className="text-end items-end pr-1">
           <h1 className="flex justify-end flex-col ">Average Score:</h1>
           <p
             className={`flex flex-row text-2xl font-bold justify-end ${setAllScoreColor()}`}
