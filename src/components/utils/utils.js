@@ -1,3 +1,4 @@
+//App Result
 export default function setUnqColor(correct, all, value) {
   const avgValue = Math.round((correct / all) * 100);
   switch (value) {
@@ -13,6 +14,7 @@ export default function setUnqColor(correct, all, value) {
   }
 }
 
+//App Question
 export function getOptionBg({ item, checked, correctIds, isMultiple, selected, singleSelected }) {
   if (checked) {
     if (correctIds.includes(item.id)) {
