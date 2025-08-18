@@ -9,7 +9,7 @@ const formatBalance = (amount) => {
 export default function AppBalance() {
   return (
     <div className="flex flex-col w-full gap-5 md:p-4">
-      <div className="flex ml-auto h-[40px]">
+      <div className="flex ml-auto h-[40px] mr-4">
         <a href="https://boosty.to/rafkat/donate">
           <img
             src="walletWhite.svg"

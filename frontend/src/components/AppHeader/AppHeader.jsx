@@ -27,16 +27,15 @@ export default function AppHeader() {
             </li>
           ))}
         </nav>
-
-        {/* Кошелек */}
-        <img
+        
+        {window.location.pathname == '/balance' ? <p></p> : <img
           src="walletWhite.svg"
           onClick={() => navigate("/balance")}
           className="cursor-pointer size-[35px]"
-        />
+        /> }
+        
       </div>
 
-      {/* Выпадающее меню для mobile */}
       {isOpen && (
         <nav className="md:hidden bg-gray-800 text-white">
           <ul className="flex flex-col p-4 gap-4">

@@ -15,7 +15,7 @@ export default function Subscribe({ subscriptions, formatBalance }) {
             <p className="flex">
               <img
                 className="size-[30px] mr-4"
-                src={`${item.included ? "check-mark.svg" : "noIncludes.svg"}`}
+                src={`${item.included ? "check-mark.svg" : "cross.svg"}`}
               />{" "}
               {item.name}
             </p>
