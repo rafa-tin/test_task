@@ -13,9 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<ReactDashboardLayout />}>
-          {/* редирект с / на /latestTest */}
           <Route index element={<Navigate to="latestTest" replace />} />
-
           <Route path="test" element={<AppQuestion />} />
           <Route path="results" element={<AppResult />} />
           <Route path="achievements" element={<AppAchievements />} />
