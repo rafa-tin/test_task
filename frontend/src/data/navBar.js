@@ -2,7 +2,7 @@ const navBar = [
   {
     id: 1,
     value: "Latest Test",
-    link: "latestTest",
+    link: "/latestTest",
   },
   {
     id: 2,

@@ -6,7 +6,10 @@ import BurgerMenu from "../UI/BurgerMenu/BurgerMenu";
 export default function AppHeader() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [idOpen, setIdOpen] = useState("0");
+  const [idOpen, setIdOpen] = useState(0);
+  function logFun (idOpen, item) {
+  return idOpen == item.id
+  }
 
   return (
     <header className="border-b border-gray-500">
@@ -43,16 +46,19 @@ export default function AppHeader() {
         className={`
     md:hidden bg-gray-800 text-white
     transition-all duration-300 ease-in-out
-    ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+    ${isOpen ? " opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
   `}
       >
         <ul className="flex flex-col p-4">
           {navBar.map((item) => (
-            <li key={item.id} className="list-none h-[30px]">
+            <li key={item.id} className="list-none text-xl">
               <Link
                 to={item.link}
+                
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center hover:bg-gray-700 rounded-md p-2"
+                className={`${
+                  item.link == window.location.pathname ? "bg-gray-700 rounded-md" : ""
+                } block w-full text-center hover:bg-gray-700 rounded-md p-2`}
               >
                 {item.value}
               </Link>
