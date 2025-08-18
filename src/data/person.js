@@ -31,8 +31,12 @@ const profileData = {
     { id: 7, testName: "Vocabulary 3 ", correctAnwers: 2, questions: 10 },
     { id: 8, testName: "Vocabulary 4", correctAnwers: 8, questions: 10 },
     { id: 9, testName: "Theory", correctAnwers: 3, questions: 10 },
-    { id: 10, testName: "For Beginners", correctAnwers: 10, questions: 10 },
-    { id: 1, testName: "For Beginners", correctAnwers: 10, questions: 10 },
+    { id: 10, testName: "For Beginners", correctAnwers: 3, questions: 10 },
+    { id: 11, testName: "For Beginners 2", correctAnwers: 10, questions: 10 },
+    { id: 12, testName: "For Beginners 3", correctAnwers: 3, questions: 10 },
+    { id: 13, testName: "For Beginners 4", correctAnwers: 7, questions: 10 },
+    { id: 14, testName: "For Beginners 5", correctAnwers: 8, questions: 10 },
+    { id: 15, testName: "For Beginners 6", correctAnwers: 6, questions: 10 },
   ],
 };
 
