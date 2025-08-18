@@ -25,7 +25,7 @@ export default function AppProfile() {
   return (
     <section className="grid md:grid-cols-[1fr_3fr] w-full h-full md:h-auto">
       <div className="border-b-1 border-b-gray-400 md:border-b-0 md:border-r-1 p-4 md:border-r-gray-400">
-        <ul className="flex flex-row  md:flex-col gap-5">
+        <ul className="flex flex-row  md:flex-col gap-5 justify-center md:justify-self-auto">
           {infoButtons.map((item) => (
             <ChooseInfo key={item.id} info={info} value={item.value} onClick={() => setInfo(item.value)}>
               {item.message}
